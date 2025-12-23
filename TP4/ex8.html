@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang ="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>JSON Exercice 8</title>
+    </head>
+    <body>
+        <button onclick="exerciceJSON()">Lancer exercice 8</button>
+        
+        <script>function exerciceJSON() {
+
+    
+    let nom = prompt("Entrez votre nom :");
+    let age = prompt("Entrez votre âge :");
+    let hobbies = prompt("Entrez vos hobbies (séparés par des virgules) :");
+
+    
+    let utilisateur = {
+        nom: nom,
+        age: age,
+        hobbies: hobbies.split(",")
+    };
+
+    
+    let utilisateurJSON = JSON.stringify(utilisateur);
+    console.log("JSON généré :", utilisateurJSON);
+
+    
+    let jsonRecu = '{"nom":"Anasse","age":18,"hobbies":["sport","designe","coding"]}';
+
+    
+    let utilisateurParse = JSON.parse(jsonRecu);
+    console.log("Objet reçu :", utilisateurParse);
+}</script>
+
+    </body>
+</html>
