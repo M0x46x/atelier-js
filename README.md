@@ -16,5 +16,4 @@ Ce dépôt contient les solutions des TPs JavaScript (TP1 à TP4).
 4. Les exercices utilisant `prompt()` / `alert()` s’affichent automatiquement lors de l’exécution.
 
 ## Auteur
-Nom : Zaoui Adam
-Groupe : Zaoui adam, Amri Anasse, Salssouli Mohamed
+Groupe : Zaoui Adam, Amri Anasse, Salssouli Mohamed
