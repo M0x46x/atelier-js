@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>TP1 - Exercice 2</title>
+</head>
+<body>
+  <button onclick="verifierMotDePasse()">Tester mot de passe</button>
+
+  <script>
+    function verifierMotDePasse() {
+      let mdp = "";
+
+      while (mdp !== "exit") {
+        mdp = prompt("Entrez un mot de passe (ou 'exit' pour quitter) :");
+
+        if (mdp === null || mdp === "exit") break;
+
+        let force = "";
+        if (mdp.length < 8) force = "faible";
+        else if (mdp.length <= 12) force = "moyen";
+        else force = "fort"; 
+
+        alert("Force du mot de passe : " + force);
+      }
+    }
+  </script>
+</body>
+</html>
