@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>TP2 - Exercice 3</title>
+</head>
+<body>
+  <button onclick="tableMultiplicationPairs()">Ex3 : Table de multiplication (pairs)</button>
+
+  <script>
+    function tableMultiplicationPairs() {
+      const n = Number(prompt("Entrez un nombre :"));
+
+      for (let i = 1; i <= 10; i++) {
+        const resultat = n * i;
+
+        if (resultat % 2 !== 0) {
+          continue; // ignorer les impairs
+        }
+
+        console.log(n + " x " + i + " = " + resultat);
+      }
+    }
+  </script>
+</body>
+</html>
