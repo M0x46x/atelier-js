@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Ex7 -saisie securisee</title>
+    </head>
+    <body>
+        <button onclick="saisieSecurisee()">saisie securisee</button>
+        <p id="resultat"></p>
+        <script>function saisieSecurisee() {
+
+    let resultat = document.getElementById("resultat");
+    let valide = false;
+
+    do {
+        try {
+            let Nombre = Number(prompt("Veuillez entrer un nombre entre 1 et 100"));
+
+            if (isNaN(Nombre)) {
+                throw "Ce n'est pas un nombre";
+            }
+
+            if (Nombre < 1 || Nombre > 100) {
+                throw "Nombre hors de la plage 1-100";
+            }
+
+           
+            resultat.style.color = "green";
+            resultat.textContent = " Nombre valide : " + Nombre;
+            valide = true;
+
+          } catch (erreur) {
+
+            
+              resultat.style.color = "red";
+              resultat.textContent = " Erreur : " + erreur;
+          }
+
+         } while (!valide);
+       }
+      </script>
+
+    </body>
+</html>
