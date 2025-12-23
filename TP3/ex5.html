@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcul des Moyennes</title>
+</head>
+<body>
+
+<h2>Calcul des Moyennes :</h2>
+
+<p id="resultat"></p>
+
+<script>
+    // 1. Demander 5 notes à l'utilisateur et les stocker dans un tableau
+    let notes = [];
+
+    for (let i = 0; i < 5; i++) {
+        let note = Number(prompt("Entrez la note numéro " + (i + 1)));
+        notes.push(note); // utilisation de push()
+    }
+
+    // 2 + 3. Fonction fléchée pour calculer la moyenne
+    const calculerMoyenne = (tableauNotes) => {
+        let somme = 0;
+        let compteur = 0;
+
+        for (let note of tableauNotes) {
+            if (note >= 0) { // vérification que la note est valide
+                somme += note;
+                compteur++;
+            } else {
+                alert("Erreur : une note négative a été ignorée !");
+            }
+        }
+
+        if (compteur === 0) {
+            return 0;
+        }
+
+        return somme / compteur;
+    };
+
+    // Calcul et affichage de la moyenne
+    let moyenne = calculerMoyenne(notes);
+    document.getElementById("resultat").innerHTML =
+        "<strong>La moyenne est :</strong> " + moyenne.toFixed(2); // arrondi à 2 décimales
+</script>
+
+</body>
+</html>
