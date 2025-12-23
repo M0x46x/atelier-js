@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>TP1 - Exercice 1</title>
+</head>
+<body>
+  <button onclick="ex1_if()">Ex1 (if/else)</button>
+  <button onclick="ex1_switch()">Ex1 (switch)</button>
+
+  <script>
+    function ex1_if() {
+      const montant = Number(prompt("Entrez le montant de vos achats (Dh) :"));
+
+      let reduction = 0;
+      if (montant < 200) reduction = montant * 0.05;
+      else if (montant <= 500) reduction = montant * 0.10;
+      else reduction = montant * 0.20;
+
+      const total = montant - reduction;
+
+      console.log(
+        "Pour un montant de " + montant + "Dh, votre réduction est de " +
+        reduction + "Dh et le total est " + total + "Dh."
+      );
+    }
+
+    function ex1_switch() {
+      const montant = Number(prompt("Entrez le montant de vos achats (Dh) :"));
+
+      let reduction = 0;
+      switch (true) {
+        case montant < 100:
+          reduction = montant * 0.05;
+          break;
+        case montant >= 100 && montant <= 500:
+          reduction = montant * 0.10;
+          break;
+        default:
+          reduction = montant * 0.20;
+      }
+
+      const total = montant - reduction;
+
+      console.log(
+        "Pour un montant de " + montant + "Dh, votre réduction est de " +
+        reduction + "Dh et le total est " + total + "Dh."
+      );
+    }
+  </script>
+</body>
+</html>
