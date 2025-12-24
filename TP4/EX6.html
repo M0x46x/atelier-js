@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TP 4 - Catalogue de Produits</title>
+</head>
+<body>
+
+<h2>TP 4 : Manipulation des Objets et Tableaux</h2>
+<p>Exercice 6 : Catalogue de Produits</p>
+
+<button onclick="afficherProduits()">Afficher les produits</button>
+<button onclick="vendreProduitPrompt()">Vendre un produit</button>
+
+<div id="resultat"></div>
+
+<script>
+    // 1️ Création du tableau de produits (objet avec nom, prix, quantité)
+    let produits = [
+        { nom: "Stylo", prix: 2, quantite: 50 },
+        { nom: "Cahier", prix: 5, quantite: 30 },
+        { nom: "Gomme", prix: 1, quantite: 100 },
+        { nom: "Cartable", prix: 10, quantite: 30 }
+    ];
+
+    // 2️ Fonction afficherProduits()
+    function afficherProduits() {
+        let resultat = "<h3>Liste des produits :</h3><ul>";
+        for (let produit of produits) {
+            resultat += `<li>${produit.nom} - Prix: ${produit.prix}€ - Quantité: ${produit.quantite}</li>`;
+        }
+        resultat += "</ul>";
+        document.getElementById("resultat").innerHTML = resultat;
+    }
+
+    // 3️ Fonction vendreProduit(produitNom, quantite)
+    function vendreProduit(nomProduit, quantiteVendue) {
+        let produit = produits.find(p => p.nom.toLowerCase() === nomProduit.toLowerCase());
+        if (!produit) {
+            alert("Produit introuvable !");
+            return;
+        }
+
+        if (quantiteVendue > produit.quantite) {
+            alert("Stock insuffisant !");
+        } else {
+            produit.quantite -= quantiteVendue;
+            alert(`Vente réussie : ${quantiteVendue} ${produit.nom}(s) vendus`);
+        }
+
+        // Mettre à jour l'affichage
+        afficherProduits();
+    }
+
+    // Fonction pour demander à l'utilisateur le produit et la quantité
+    function vendreProduitPrompt() {
+        let nom = prompt("Entrez le nom du produit à vendre :");
+        let qte = parseInt(prompt("Entrez la quantité à vendre :"));
+        if (!isNaN(qte) && qte > 0) {
+            vendreProduit(nom, qte);
+        } else {
+            alert("Quantité invalide !");
+        }
+    }
+
+    // Affichage initial
+    afficherProduits();
+</script>
+
+</body>
+</html>
